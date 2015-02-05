@@ -94,6 +94,12 @@
     _index = NSUIntegerMax;
 }
 
+- (void)setZoomingScrollViewBackground:(UIColor *)backgroundColor {
+    self.backgroundColor = backgroundColor;
+    _tapView.backgroundColor = backgroundColor;
+    _photoImageView.backgroundColor = backgroundColor;
+}
+
 #pragma mark - Image
 
 - (void)setPhoto:(id<MWPhoto>)photo {

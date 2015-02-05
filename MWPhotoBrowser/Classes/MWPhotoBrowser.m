@@ -145,7 +145,7 @@
     if (!_enableGrid) _startOnGrid = NO;
 	
 	// View
-	self.view.backgroundColor = [UIColor blackColor];
+	self.view.backgroundColor = self.backgroundColor;
     self.view.clipsToBounds = YES;
 	
 	// Setup paging scrolling view
@@ -156,7 +156,7 @@
 	_pagingScrollView.delegate = self;
 	_pagingScrollView.showsHorizontalScrollIndicator = NO;
 	_pagingScrollView.showsVerticalScrollIndicator = NO;
-	_pagingScrollView.backgroundColor = [UIColor blackColor];
+	_pagingScrollView.backgroundColor = self.backgroundColor;
     _pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
 	[self.view addSubview:_pagingScrollView];
 	
@@ -815,6 +815,7 @@
 			MWZoomingScrollView *page = [self dequeueRecycledPage];
 			if (!page) {
 				page = [[MWZoomingScrollView alloc] initWithPhotoBrowser:self];
+                [page setZoomingScrollViewBackground:self.backgroundColor];
 			}
 			[_visiblePages addObject:page];
 			[self configurePage:page forIndex:index];
@@ -1147,6 +1148,7 @@
     
     // Init grid controller
     _gridController = [[MWGridViewController alloc] init];
+    _gridController.backgroundColor = self.backgroundColor;
     _gridController.initialContentOffset = _currentGridContentOffset;
     _gridController.browser = self;
     _gridController.selectionMode = _displaySelectionButtons;

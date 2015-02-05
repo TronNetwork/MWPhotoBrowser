@@ -27,5 +27,6 @@
 - (void)displayImageFailure;
 - (void)setMaxMinZoomScalesForCurrentBounds;
 - (void)prepareForReuse;
+- (void)setZoomingScrollViewBackground:(UIColor *)backgroundColor;
 
 @end
